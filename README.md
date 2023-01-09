@@ -58,7 +58,7 @@ Current Status:
 * Currently getting the error ''Your startup project 'HairSalon' doesn't reference Microsoft.EntityFrameworkCore.Design. This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct, install the package, and try again.' in terminal after running this command:
 
 ```
-dotnet ef database update --connection "Server=hair-salon-sql.mysql.database.azure.com;Database=hair-salon;Port=3306;User Id=hlehrer;Password=4540!!br;SSL Mode=Required"
+dotnet ef database update --connection "Server=hair-salon-sql.mysql.database.azure.com;Database=hair-salon;Port=3306;User Id=<userID>;Password=<password>;SSL Mode=Required"
 
 ```
 
