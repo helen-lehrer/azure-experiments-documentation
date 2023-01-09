@@ -53,7 +53,8 @@ dotnet ef database update --connection "<your-azure-sql-connection-string>"
 
 Current Status:
 
-* I deployed the site, but I'm getting 'HTTP Error 503. The service is unavailable.'
+* It works locally and I deployed the site, but I'm getting 'HTTP Error 503. The service is unavailable.'
+* When I try to validate the connection string, it fails and gives the message 'The configured values is validated connectionString of connection is incorrect'
 * Currently getting this error in terminal after running the 'dotnet ef database update --connection' command: Your startup project 'HairSalon' doesn't reference Microsoft.EntityFrameworkCore.Design. This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct, install the package, and try again.\
 
 
