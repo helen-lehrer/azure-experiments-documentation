@@ -33,12 +33,12 @@ Hosting this repo:  [https://github.com/helen-lehrer/HairSalon.Solution](https:/
 * Navigate to the App Service just created to the Service Connector tab and Create a new Service Connector
 * Service Type- DB for MySQL flexible server
 * MySQL flexible server- choose the flexible server just setup. Deploy.
-* After the service connector is deployed, find it on the service connector tab, expand it, and copy thr connection string.
+* After the service connector is deployed, find it on the service connector tab, expand it, and copy the connection string.
 * Create an appsettings.json in the codebase and add something like:
 
 ```
 "ConnectionStrings": {
-    "AZURE_MYSQL_CONNECTIONSTRING": "Server=(localdb)\\mssqllocaldb;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "AZURE_MYSQL_CONNECTIONSTRING": "Server=hair-salon-sql.mysql.database.azure.com;Database=hair-salon;Port=3306;User Id=<userID>;Password=<password>;SSL Mode=Required"
   }
 
 ```
@@ -48,15 +48,19 @@ Hosting this repo:  [https://github.com/helen-lehrer/HairSalon.Solution](https:/
 * Run this command to update our database with that connection:
 
 ```
-dotnet ef database update --connection "<your-azure-sql-connection-string>"
+dotnet ef database update --connection "Server=hair-salon-sql.mysql.database.azure.com;Database=hair-salon;Port=3306;User Id=<userID>;Password=<password>;SSL Mode=Required"
 ```
 
 Current Status:
 
 * It works locally and I deployed the site, but I'm getting 'HTTP Error 503. The service is unavailable.'
-* When I try to validate the connection string, it fails and gives the message 'The configured values is validated connectionString of connection is incorrect'
-* Currently getting this error in terminal after running the 'dotnet ef database update --connection' command: Your startup project 'HairSalon' doesn't reference Microsoft.EntityFrameworkCore.Design. This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct, install the package, and try again.\
+* When I try to validate the connection string in Azure, it fails and gives the message 'The configured values is validated connectionString of connection is incorrect'
+* Currently getting the error ''Your startup project 'HairSalon' doesn't reference Microsoft.EntityFrameworkCore.Design. This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct, install the package, and try again.' in terminal after running this command:
 
+```
+dotnet ef database update --connection "Server=hair-salon-sql.mysql.database.azure.com;Database=hair-salon;Port=3306;User Id=hlehrer;Password=4540!!br;SSL Mode=Required"
+
+```
 
 ### Vocab for reference:
 
